@@ -1,0 +1,237 @@
+:root {
+    --bg-body: #0f1014;
+    --bg-sidebar: #15161d;
+    --bg-header: #1b1c24;
+    --bg-surface: #22232d;
+
+    --text-primary: #ffffff;
+    /* белый текст */
+    --text-secondary: #a5a7b4;
+
+    --accent: #7c5dff;
+    /* фиолетовый акцент */
+    --accent-hover: #9a80ff;
+
+    --border: #2d2e39;
+}
+
+html {
+    color-scheme: dark;
+}
+
+body {
+    font-family: "Geologica", sans-serif;
+    background-color: var(--bg-body);
+    color: var(--text-primary);
+    overflow-x: hidden;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--accent-hover);
+}
+
+/* ===== Sidebar ===== */
+.sidebar {
+    width: 240px;
+    height: 100vh;
+    background-color: var(--bg-sidebar);
+    border-right: 1px solid var(--border);
+    transition: transform .3s ease-in-out;
+}
+
+.sidebar .nav-link {
+    color: var(--text-secondary);
+    padding: .55rem 1rem;
+    border-radius: .5rem;
+    font-size: .95rem;
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+}
+
+.sidebar .nav-link:hover {
+    background-color: var(--bg-surface);
+    color: var(--text-primary);
+}
+
+.sidebar .nav-link.active {
+    background-color: var(--accent);
+    color: #fff;
+    font-weight: 600;
+}
+
+.emoji {
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+/* Nested (collapse) links */
+.sidebar .collapse .nav-link {
+    background: transparent;
+    color: var(--text-secondary);
+}
+
+.sidebar .collapse .nav-link:hover {
+    background-color: var(--bg-surface);
+    color: var(--text-primary);
+}
+
+.sidebar .collapse .nav-link.active {
+    background-color: var(--accent);
+    color: #fff;
+}
+
+/* search */
+.search-wrapper {
+    max-width: 260px;
+}
+
+.search-input {
+    background: var(--bg-header);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+}
+
+.search-input::placeholder {
+    color: var(--text-secondary);
+}
+
+.search-icon {
+    background: var(--bg-header);
+    border: 1px solid var(--border);
+    border-right: 0;
+    color: var(--text-secondary);
+}
+
+
+/* Mobile toggle */
+@media (max-width: 991.98px) {
+    .sidebar {
+        position: fixed;
+        z-index: 1050;
+        transform: translateX(-100%);
+    }
+
+    .sidebar.show {
+        transform: translateX(0);
+    }
+}
+
+.navbar-custom {
+    background-color: var(--bg-header) !important;
+    border-bottom: 1px solid var(--border);
+}
+
+/* ===== Card & Table ===== */
+.card-custom {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: .75rem;
+}
+
+.card-custom .card-header {
+    background: transparent;
+    border-bottom: 1px solid var(--border);
+}
+
+.table-custom {
+    --bs-table-bg: var(--bg-surface);
+    --bs-table-border-color: var(--border);
+    --bs-table-hover-bg: #2a2b36;
+    color: var(--text-primary);
+}
+
+.table-custom th {
+    color: var(--text-primary);
+    font-weight: 600;
+    font-size: .8rem;
+    text-transform: uppercase;
+}
+
+.table-custom td {
+    color: var(--text-primary);
+}
+
+/* ===== Buttons ===== */
+.btn-sm {
+    padding: .35rem .75rem;
+    font-size: .8rem;
+}
+
+.btn-accent {
+    background-color: var(--accent);
+    border: none;
+    color: #fff;
+}
+
+.btn-accent:hover {
+    background-color: var(--accent-hover);
+}
+
+.btn-outline-accent {
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    background: transparent;
+}
+
+.btn-outline-accent:hover {
+    background-color: var(--accent);
+    color: #fff;
+}
+
+.table-actions .btn+.btn {
+    margin-left: .35rem;
+}
+
+/* ===== Main layout ===== */
+.content-wrapper {
+    padding-left: 0;
+}
+
+@media (min-width: 992px) {
+    .content-wrapper {
+        padding-left: 240px;
+    }
+}
+
+/* Ensure visibility on dark */
+.card-custom,
+.card-custom .card-header,
+.card-custom .card-body,
+.list-group-item {
+    color: var(--text-primary);
+}
+
+.list-group-item {
+    background: transparent;
+    border-color: var(--border);
+}
+
+.card-custom small.text-secondary,
+.list-group-item.text-secondary {
+    color: var(--text-secondary);
+}
+
+/* Mobile close button inside sidebar */
+#sidebarClose {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.75rem;
+    z-index: 1060;
+}
+
+@media (min-width: 992px) {
+    #sidebarClose {
+        display: none;
+    }
+}
+
+.nav-pills {
+    overflow-y: auto;
+    display: block;
+}

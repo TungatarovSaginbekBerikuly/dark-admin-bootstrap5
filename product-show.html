@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin panel</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@100..900&display=swap" rel="stylesheet">
+    <!-- Core dark theme styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Mobile header -->
+    <header class="navbar navbar-dark navbar-custom sticky-top d-lg-none">
+        <div class="container-fluid">
+            <button class="btn btn-outline-accent" id="sidebarToggle">☰</button>
+            <span class="navbar-brand">Admin panel</span>
+        </div>
+    </header>
+    <!-- Sidebar -->
+    <nav id="sidebar" class="sidebar position-fixed top-0 start-0 d-flex flex-column p-3">
+        <!-- Close button visible on mobile -->
+        <button id="sidebarClose" class="btn btn-outline-accent btn-sm d-lg-none">✖</button>
+
+        <a href="#" class="d-flex align-items-center mb-4 text-decoration-none text-light fs-5 fw-semibold">Admin
+            panel</a>
+        <ul class="nav nav-pills flex-column gap-1">
+            <li class="nav-item"><a href="#" class="nav-link active"><span class="emoji">🏠</span>Главная</a></li>
+            <li><a class="nav-link" data-bs-toggle="collapse" href="#productsMenu" role="button"><span
+                        class="emoji">📦</span>Продукты<span class="ms-auto">➕</span></a>
+                <div class="collapse" id="productsMenu"><a href="#" class="nav-link">📃 Все продукты</a><a href="#"
+                        class="nav-link">➕ Добавить продукт</a></div>
+            </li>
+            <li><a class="nav-link" data-bs-toggle="collapse" href="#categoriesMenu" role="button"><span
+                        class="emoji">🗂️</span>Категории<span class="ms-auto">➕</span></a>
+                <div class="collapse" id="categoriesMenu"><a href="#" class="nav-link">📃 Все категории</a><a href="#"
+                        class="nav-link">➕ Добавить категорию</a></div>
+            </li>
+            <li><a class="nav-link" data-bs-toggle="collapse" href="#datesMenu" role="button"><span
+                        class="emoji">📅</span>Даты выпуска<span class="ms-auto">➕</span></a>
+                <div class="collapse" id="datesMenu"><a href="#" class="nav-link">📃 Все даты</a><a href="#"
+                        class="nav-link">➕
+                        Добавить дату</a></div>
+            </li>
+            <li><a class="nav-link" data-bs-toggle="collapse" href="#cadrsMenu" role="button"><span
+                        class="emoji">🎞️</span>Кадры<span class="ms-auto">➕</span></a>
+                <div class="collapse" id="cadrsMenu"><a href="#" class="nav-link">📃 Все кадры</a><a href="#"
+                        class="nav-link">➕
+                        Добавить кадр</a></div>
+            </li>
+            <li><a class="nav-link" data-bs-toggle="collapse" href="#slidesMenu" role="button"><span
+                        class="emoji">🖼️</span>Слайды<span class="ms-auto">➕</span></a>
+                <div class="collapse" id="slidesMenu"><a href="#" class="nav-link">📃 Все слайды</a><a href="#"
+                        class="nav-link">➕ Добавить слайд</a></div>
+            </li>
+            <li class="nav-item"><a href="#" class="nav-link"><span class="emoji">👥</span>Пользователи</a></li>
+            <li class="nav-item"><a href="#" class="nav-link"><span class="emoji">💬</span>Комментарии</a></li>
+        </ul>
+        <hr class="my-4" style="border-color:var(--border)">
+        <div class="mt-auto d-flex flex-column gap-2 text-secondary small">
+            <div class="d-flex align-items-center gap-2"><img src="https://avatars.githubusercontent.com/u/1?v=4"
+                    width="32" height="32" class="rounded-circle" alt="avatar">Admin</div>
+            <button class="btn btn-outline-accent btn-sm w-100">🚪 Выйти</button>
+        </div>
+    </nav>
+    <!-- Main content -->
+    <div class="content-wrapper">
+        <main class="container-fluid py-4 px-4 px-lg-5">
+            <div class="d-flex align-items-center mb-4 gap-3">
+                <h1 class="h3 fw-semibold mb-0">🔎 Просмотр товара</h1>
+                <a href="product.html" class="btn btn-outline-accent btn-sm">← Назад</a>
+                <button class="btn btn-accent btn-sm ms-auto">✏️ Редактировать</button>
+            </div>
+
+            <!-- Product details -->
+            <div class="card card-custom p-4">
+                <div class="row g-4 align-items-start">
+                    <div class="col-12 col-md-4 text-center">
+                        <img src="https://ares.shiftdelete.net/2024/09/iphone-16-plus-on-siparis-1.jpg" class="img-fluid rounded"
+                            alt="Product image" />
+                    </div>
+                    <div class="col-12 col-md-8">
+                        <h2 class="fw-semibold mb-2" id="prodTitle">Product One</h2>
+                        <p class="text-secondary mb-4" id="prodCategoryBadge"><span
+                                class="badge bg-secondary">Категория: Комплектующие</span></p>
+                        <h4 class="text-accent mb-3">₸&nbsp;<span id="prodPrice">19&nbsp;990</span></h4>
+                        <p id="prodDescription">Some description about Product One. Он быстрый, надёжный и поддерживает
+                            новейшие технологии.</p>
+                        <hr>
+                        <p class="small text-secondary mb-1">ID товара: <span id="prodId">1</span></p>
+                        <p class="small text-secondary">Дата добавления: <span id="prodDate">12.03.2025</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="text-end text-secondary small pt-4">© 2025 Admin Panel by <a
+                    href="https://github.com/TungatarovSaginbekBerikuly">Tungatarov Saginbek</a></footer>
+        </main>
+    </div>
+    <!-- JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+    <script>
+        /* Fill dashboard metrics */
+        const metrics = [['📦', 128, 'Продуктов'], ['🗂️', 12, 'Категорий'], ['👥', 45, 'Пользователей'], ['🎞️', 30, 'Кадров'], ['📅', 20, 'Дат выпуска'], ['🖼️', 8, 'Слайдов']];
+        const row = document.querySelector('.row.g-4.mb-4');
+        metrics.forEach(m => { const t = row.querySelector('#cardTemplate').content.cloneNode(true); t.querySelector('.icon').textContent = m[0]; t.querySelector('.count').textContent = m[1]; t.querySelector('.label').textContent = m[2]; row.appendChild(t); });
+        /* Chart */
+        new Chart(document.getElementById('statsChart'), { type: 'line', data: { labels: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн'], datasets: [{ label: 'Уменшить', data: [120, 190, 170, 220, 200, 230], borderColor: '#7c5dff', tension: .4 }] }, options: { plugins: { legend: { labels: { color: '#fff' } } }, scales: { x: { ticks: { color: '#ccc' }, grid: { color: '#333' } }, y: { ticks: { color: '#ccc' }, grid: { color: '#333' } } } } });
+    </script>
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        document.getElementById('sidebarToggle')?.addEventListener('click', () => sidebar.classList.toggle('show'));
+        document.getElementById('sidebarClose')?.addEventListener('click', () => sidebar.classList.remove('show'));
+    </script>
+</body>
+
+</html>
